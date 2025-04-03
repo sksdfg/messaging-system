@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChatConnect - Messaging System</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <!-- For PNG/SVG (modern browsers) -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <!-- Header Section -->
+    <header>
+        <div class="container">
+            <div class="logo">
+                <i class="fas fa-comments"></i>
+                <h1>ChatConnect</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#" class="active">Home</a></li>
+                    <li><a href="#">Contact us</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Authentication Section -->
+        <div id="auth">
+            <h2>Login / Signup</h2>
+            <p class="auth-subtitle">Connect with friends and colleagues instantly</p>
+            <input type="text" id="username" placeholder="Username" required>
+            <input type="email" id="email" placeholder="Email" required>
+            <input type="password" id="password" placeholder="Password" required>
+            
+            <!-- Profile Image URL (only for signup) -->
+            <div id="profile-image-container" style="display: none;">
+                <input type="text" id="image-url" placeholder="Profile Image URL">
+            </div>
+            <div class="button-container">
+                <button id="login">Login</button> 
+                <button id="signup">Signup</button>
+            </div>
+            
+            <div class="auth-links">
+                <a href="#">Forgot Password?</a>
+                <a href="#">Need Help?</a>
+            </div>
+        </div>
+
+        <!-- Chat Section (Visible After Login) -->
+        <div id="chat" style="display: none;">
+            <!-- User Welcome Message -->
+            <div id="user-info"></div>
+            
+            <!-- Messaging UI -->
+            <h2>Send Message</h2>
+            <input type="text" id="receiver" placeholder="Receiver Username" required>
+            <textarea id="message" placeholder="Type your message..." rows="4" required></textarea><br>
+            
+            <!-- File Attachment -->
+            <div class="file-upload">
+                <label for="attachment"><i class="fas fa-paperclip"></i> Attach File</label>
+                <input type="file" id="attachment">
+                <div id="file-info"></div>
+            </div>
+            
+            <div class="button-group">
+                <button id="send"><i class="fas fa-paper-plane"></i> Send Message</button>
+                <button id="see-messages"><i class="fas fa-sync"></i> Refresh Messages</button>
+                <button id="logout"><i class="fas fa-sign-out-alt"></i> Logout</button>
+            </div>
+            
+            <!-- Display Messages -->
+            <h2>Your Messages</h2>
+            <div id="messages"></div>
+        </div>
+    </main>
+
+    <!-- Footer Section -->
+    <footer>
+        <div class="container">
+            <div class="footer-columns">
+                <div class="footer-column">
+                    <h3>ChatConnect</h3>
+                    <p>Connecting people seamlessly since 2025. Share messages and files with friends and colleagues with just a few clicks.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#">Privacy Policy</a></li>
+                        <li><a href="#">Terms of Service</a></li>
+                        <li><a href="#">FAQ</a></li>
+                        <li><a href="#">Support</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <p><i class="fas fa-envelope"></i> support@chatconnect.com</p>
+                    <p><i class="fas fa-phone"></i> (123) 456-7890</p>
+                    <div class="social-icons">
+                        <a href="#"><i class="fab fa-facebook"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin"></i></a>
+                    </div>
+                </div>
+            </div>
+            <div class="copyright">
+                <p>&copy; 2025 ChatConnect. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Add this right before the closing </body> tag -->
+    <div id="password-reset-modal" class="modal" style="display: none;">
+        <div class="modal-content">
+            <span class="close-modal">&times;</span>
+            <h2>Reset Password</h2>
+            <input type="email" id="reset-email" placeholder="Your Email" required>
+            <input type="password" id="new-password" placeholder="New Password" required>
+            <input type="password" id="confirm-password" placeholder="Confirm New Password" required>
+            <button id="reset-password-btn">Reset Password</button>
+            <div id="reset-message"></div>
+        </div>
+    </div>
+
+    <!-- Add this right before the closing </body> tag -->
+    <div id="feedback-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-feedback-modal">&times;</span>
+            <h2>Contact Us</h2>
+            <textarea id="feedback-text" placeholder="Your feedback..."></textarea>
+            <button id="submit-feedback-btn">Submit</button>
+            <p id="feedback-message"></p>
+        </div>
+    </div>
+    <script src="app.js"></script>
+</body>
+</html>
